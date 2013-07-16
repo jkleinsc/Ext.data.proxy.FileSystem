@@ -1,18 +1,25 @@
 /*
+The MIT License (MIT)
 
-This file is part of Ext JS 4
+Copyright (c) 2013 John Kleinschmidt
 
-Copyright (c) 2011 Sencha Inc
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
-Contact:  http://www.sencha.com/contact
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-GNU General Public License Usage
-This file may be used under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation and appearing in the file LICENSE included in the packaging of this file.  Please review the following information to ensure the GNU General Public License version 3.0 requirements will be met: http://www.gnu.org/copyleft/gpl.html.
-
-If you are unsure which license is appropriate for your use, please contact the sales department at http://www.sencha.com/contact.
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
 Ext.Loader.setConfig({enabled: true});
 Ext.Loader.setPath({
     'Ext': '/ext/src',
@@ -78,14 +85,6 @@ Ext.onReady(function() {
         selectedNode: undefined,
         setNode: function(aNode) {
             selectedNode = aNode;
-        },
-        addFolder: function(item, evt) {
-            this.selectedNode.appendChild({
-                id: "new folder",            
-                leaf:false,
-                text:"new folder",
-                cls:"folder"
-            });  
         }
     });
     
@@ -103,25 +102,6 @@ Ext.onReady(function() {
         width: 250,
         title: 'Files',
         useArrows: true,
-        dockedItems: [{
-            xtype: 'toolbar',
-            items: [{
-                text: 'Add File',
-                handler: function(){
-                    tree.getRootNode().appendChild({
-                        leaf:true,
-                        text:"some text",
-                        cls:"",
-                        iconCls:""                    
-                    });
-                }
-            }, {
-                text: 'Collapse All',
-                handler: function(){
-                    tree.collapseAll();
-                }
-            }]
-        }], 
         listeners: {
             itemclick: function ( view, record, item, index, e, eOpts ) {
                 Ext.get('preview-img').set({src: record.get('url')});
@@ -135,8 +115,6 @@ Ext.onReady(function() {
         }
             
     });
-    
-            
     
     function saveFile() {
         var form = fileInputPanel.getForm();
@@ -183,20 +161,11 @@ Ext.onReady(function() {
             ui: 'footer',    
 
             items: [{
-                text: 'Save',
+                text: 'Add',
                 handler: saveFile
-            },{
-                text: 'Reset',
-                handler: function() {
-                    this.up('form').getForm().reset();
-                }
             }]
         }]
     });
-    
-    
-
-    
 
     var viewport = Ext.create('Ext.Viewport', {
         layout:'border',
