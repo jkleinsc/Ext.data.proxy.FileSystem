@@ -13,10 +13,10 @@ To use this proxy, specify the following in your store's configuration.
 ```
 
 The proxy uses special fields for the records in the store
-*''file'' -- The file to save using the FileSystem API (used on create only).
-*''fileEntry'' -- The FileEntry representing the file
-*''text'' -- The filename
-*''url'' -- The filesystem url for the file
+* **file** -- The file to save using the FileSystem API (used on create only).
+* **fileEntry** -- The FileEntry representing the file
+* **text** -- The filename
+* **url** -- The filesystem url for the file
 
 ## License
 
